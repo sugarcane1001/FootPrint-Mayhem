@@ -10,13 +10,6 @@ const Header = ({ handleLogout }) => {
             <div className='flex items-center justify-between'>
                 <a className="mr-8 text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" href=''>Home</a>
                 <a className="text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" href=''>About</a>
-                
-                <button
-                    onClick={handleLogout}
-                    className="w-full p-2 text-white bg-red-600 rounded-md hover:bg-red-500"
-                >
-                    Logout
-                </button>
             </div>
         </header>
     );
