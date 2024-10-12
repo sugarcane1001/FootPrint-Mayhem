@@ -25,22 +25,26 @@ export function AuthPage() {
         e.preventDefault();
         try {
             if (isLogin) {
-                // Sign in existing user
+                // existing user
                 await signInWithEmailAndPassword(auth, email, password);
-                navigate('/dashboard'); 
+                navigate('/dashboard');
             } else {
-                // Create a new user
+                // new user
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
 
                 await setDoc(doc(db, 'users', user.uid), {
                     fullName,
-                    username,
                     email,
                     location,
+                    username,
+                    streaks: 0,
+                    badges: "none",
+                    carbonFootprint: 0.0,
+                    points: 0
                 });
 
-                navigate('/dashboard'); 
+                navigate('/dashboard');
             }
         } catch (error) {
             console.error("Authentication error:", error.message);
