@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+import DashboardHeader from '../components/DashboardHeader';
 import { LeaderBoard } from '../components/LeaderBoard';
+import Streak from '../components/Streak';
 import { handleFormSubmission } from '../firebaseUtils';
 
 import { UserInputForm } from '../components/UserInputForm';
@@ -20,8 +21,9 @@ export function Dashboard() {
 
     return (
         <>
-            <Header handleLogout={handleLogout}></Header>
-            <UserInputForm></UserInputForm>
+            <DashboardHeader handleLogout={handleLogout}></DashboardHeader>
+                <UserInputForm></UserInputForm>
+                <Streak></Streak>
             <LeaderBoard></LeaderBoard>
             
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
