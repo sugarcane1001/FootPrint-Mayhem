@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ handleLogout }) => {
+export default function Header({ handleLogout }) {
     return (
         <header className="flex items-center justify-between bg-white p-4 shadow-lg px-6">
             <div className="flex items-center">
@@ -35,5 +35,3 @@ const Header = ({ handleLogout }) => {
         </header>
     );
 };
-
-export default Header;
