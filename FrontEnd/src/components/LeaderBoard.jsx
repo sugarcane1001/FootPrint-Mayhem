@@ -9,6 +9,7 @@ export function LeaderBoard() {
     const [formData, setFormData] = useState('');
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [currentUserRank, setCurrentUserRank] = useState(null);
+    const [currentUserPoints, setCurrenUserPoints] = useState(0);
     const [leaderboard, setLeaderboard] = useState([]);
     const [streakScore, setStreakScore] = useState(0);
 
@@ -21,9 +22,10 @@ export function LeaderBoard() {
 
     const fetchLeaderboard = async () => {
         try {
-            const response = await axios.get('YOUR_BACKEND_API_URL/leaderboard');
+            const response = await axios.get('http://localhost:3000/leaderboard');
             const data = response.data.leaderboard;
-
+            console.log(data);
+            setCurrenUserPoints(data.find(user => user.id === auth.currentUser.uid).points);
             const currentUser = data.find(user => user.id === auth.currentUser.uid);
             setCurrentUserRank(data.indexOf(currentUser) + 1);
 
@@ -65,7 +67,7 @@ export function LeaderBoard() {
                             <tbody>
                                 {leaderboard.map((user, index) => (
                                     <tr key={user.id} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-                                        <td className="px-4 py-2">{user.name}</td>
+                                        <td className="px-4 py-2">{user.username}</td>
                                         <td className="px-4 py-2">{index + 1}</td>
                                         <td className="px-4 py-2">{user.points}</td>
                                     </tr>
@@ -74,6 +76,7 @@ export function LeaderBoard() {
                                     <tr className="bg-yellow-100">
                                         <td className="px-4 py-2 font-bold">You</td>
                                         <td className="px-4 py-2 font-bold">{currentUserRank}</td>
+                                        <td className="px-4 py-2 font-bold">{currentUserPoints}</td>
                                     </tr>
                                 )}
                             </tbody>
