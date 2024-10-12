@@ -224,25 +224,30 @@ export function QuizPage() {
     };
 
     return (
-        <div className="bg-green-50 rounded-lg p-8 shadow-lg max-w-md mx-auto mt-10">
-            <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Level {levelId} Quiz</h2>
-            <h3 className="text-xl font-semibold text-green-600 mb-4 text-center">{currentQuiz.question}</h3>
-            <div className="space-y-4">
-                {currentQuiz.options.map((option, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handleAnswerClick(index)}
-                        className={`w-full p-4 text-left rounded-lg transition-colors duration-300 
-                            ${selectedAnswer === index
-                                ? index === currentQuiz.correctAnswer
-                                    ? 'bg-green-500 text-white shadow-lg'
-                                    : 'bg-red-500 text-white shadow-lg'
-                                : 'bg-white hover:bg-green-100 border border-green-300'
-                            }`}
-                    >
-                        {option}
-                    </button>
-                ))}
+        <div className="min-h-screen bg-green-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-lg p-8 shadow-lg w-full max-w-4xl">
+                <h2 className="text-4xl font-bold text-center text-green-700 mb-8">Level {levelId} Quiz</h2>
+                <h3 className="text-2xl font-semibold text-green-600 mb-6 text-center">{currentQuiz.question}</h3>
+                <div className="space-y-6">
+                    {currentQuiz.options.map((option, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleAnswerClick(index)}
+                            className={`w-full p-6 text-left rounded-lg transition-colors duration-300 text-lg
+                                ${selectedAnswer === index
+                                    ? index === currentQuiz.correctAnswer
+                                        ? 'bg-green-500 text-white shadow-lg'
+                                        : 'bg-red-500 text-white shadow-lg'
+                                    : 'bg-green-50 hover:bg-green-100 border border-green-300'
+                                }`}
+                        >
+                            {option}
+                        </button>
+                    ))}
+                </div>
+                <div className="mt-8 text-center text-gray-600">
+                    Question {currentQuestion + 1} of {questions.length}
+                </div>
             </div>
         </div>
     );
