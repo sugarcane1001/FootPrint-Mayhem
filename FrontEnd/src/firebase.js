@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"; 
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth"; 
 
-// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBUr6P3_Edn2cV9S-_SD_HQxbsLkFxWhVM",
   authDomain: "hackharvard-ec32c.firebaseapp.com",
@@ -13,10 +13,11 @@ const firebaseConfig = {
   measurementId: "G-M9GHDDSM9B"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-// Initialize Firebase Authentication and export it
+const db = getFirestore(app);
+
 const auth = getAuth(app);
-export { auth }; 
+
+export { db, auth };
