@@ -87,11 +87,11 @@ export function LeaderBoard() {
                             {/* Fire Logo on the Left */}
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="w-16 h-16"
+                                className="w-16 h-16 text-green-600"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
-                                strokeWidth={2}
+                                strokeWidth={1}
                             >
                                 <path
                                     strokeLinecap="round"
