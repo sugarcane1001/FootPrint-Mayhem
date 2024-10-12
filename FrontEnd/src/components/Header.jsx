@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
 
 export default function Header({ handleLogout }) {
     return (
@@ -14,13 +15,13 @@ export default function Header({ handleLogout }) {
             </div>
             <div className="ml-auto flex items-center space-x-8">
                 <Link 
-                    className="text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" 
+                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" 
                     to="/dashboard"
                 >
-                    Home
+                    <FaHome size={24} />
                 </Link>
                 <Link 
-                    className="text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" 
+                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" 
                     to="/about"
                 >
                     About
