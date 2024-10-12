@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { auth } from '../firebase';
+import Streak from './Streak';
 
 export function LeaderBoard() {
     const [currentUserRank, setCurrentUserRank] = useState(null);
@@ -80,7 +81,7 @@ export function LeaderBoard() {
                             </svg>
                             {/* Streak Value on the Right */}
                             <span className="text-4xl font-bold ml-auto">
-                                {streakScore}
+                                <Streak />
                             </span>
                         </div>
                     </div>
