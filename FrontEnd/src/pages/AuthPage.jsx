@@ -2,32 +2,49 @@ import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../firebase';
+import { doc, setDoc } from 'firebase/firestore'; 
 
 export function AuthPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
+    const [fullName, setFullName] = useState('');
+    const [location, setLocation] = useState('');
+    const [username, setUsername] = useState('');
+    const [isLogin, setIsLogin] = useState(true);
     const navigate = useNavigate();
 
-    // Toggle between login and signup
-    const toggleLogin = () => setIsLogin(!isLogin);
+    const toggleLogin = () => {
+        setIsLogin(!isLogin);
+        setFullName('');
+        setLocation('');
+        setUsername('');
+    };
 
-    // form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             if (isLogin) {
                 // Sign in existing user
                 await signInWithEmailAndPassword(auth, email, password);
-                navigate('/dashboard'); // Redirect to dashboard on successful login
+                navigate('/dashboard'); 
             } else {
                 // Create a new user
-                await createUserWithEmailAndPassword(auth, email, password);
-                navigate('/dashboard'); // Redirect to dashboard on successful signup
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                await setDoc(doc(db, 'users', user.uid), {
+                    fullName,
+                    username,
+                    email,
+                    location,
+                });
+
+                navigate('/dashboard'); 
             }
         } catch (error) {
             console.error("Authentication error:", error.message);
-            alert(error.message); // if error 
+            alert(error.message);
         }
     };
 
@@ -38,6 +55,35 @@ export function AuthPage() {
                     {isLogin ? 'Login' : 'Sign Up'}
                 </h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                    {!isLogin && (
+                        <>
+                            <input
+                                type="text"
+                                placeholder="Full Name"
+                                value={fullName}
+                                onChange={(e) => setFullName(e.target.value)}
+                                required
+                                className="w-full p-2 border border-gray-300 rounded-md"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                                className="w-full p-2 border border-gray-300 rounded-md"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Location"
+                                value={location}
+                                onChange={(e) => setLocation(e.target.value)}
+                                required
+                                className="w-full p-2 border border-gray-300 rounded-md"
+                            />
+                        </>
+                    )}
+
                     <input
                         type="email"
                         placeholder="Email"
