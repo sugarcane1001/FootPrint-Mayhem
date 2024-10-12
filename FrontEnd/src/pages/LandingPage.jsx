@@ -97,7 +97,7 @@ export function LandingPage() {
                     ))}
                 </div>
             </section>
-            <Footer></Footer>
+            <Footer></Footer> 
         </>
     );
 }
