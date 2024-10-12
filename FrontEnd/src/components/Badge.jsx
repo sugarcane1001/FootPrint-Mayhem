@@ -1,3 +1,4 @@
+// Badge.jsx
 import React from 'react';
 import { FaBicycle, FaLeaf, FaCarrot } from 'react-icons/fa'; // Example icons
 
