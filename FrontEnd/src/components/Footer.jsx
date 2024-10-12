@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export function Footer() {
+export default function Footer() {
     const styles = {
         container: `min-h-screen flex flex-col`,
         hero: `text-center py-20 bg-green-50`, // Centered text, added some padding and a light background
