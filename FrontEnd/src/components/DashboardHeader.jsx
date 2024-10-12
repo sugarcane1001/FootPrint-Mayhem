@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { auth } from '../firebase'; // Adjust the path as needed
-import { db } from '../firebase'; // Firestore import
+import { FaHome } from 'react-icons/fa'; // Correct import from Font Awesome
+import { auth, db } from '../firebase'; // Ensure paths to firebase are correct
+import { Link } from 'react-router-dom';
 
 const DashboardHeader = ({ handleLogout }) => {
     const [username, setUsername] = useState('');
@@ -29,6 +30,13 @@ const DashboardHeader = ({ handleLogout }) => {
             <div className="flex items-center">
                 <img src="https://i0.wp.com/energysavingpros.com/wp-content/uploads/2017/09/footprint-e1505497060105.jpg?fit=900%2C471&ssl=1" alt="App Logo" className="h-10" />
                 <h1 className="text-2xl font-bold ml-2 font-mono cursor-default">Footprint Mayhem</h1>
+                <div className='ml-8 flex items-center'>
+                    {/* House icon */}
+                    <Link className="mr-8 text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" to='/'>
+                        <FaHome size={24} /> {/* House icon, 24px size */}
+                    </Link>
+                    <a className="text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" href=''>About</a>
+                </div>
             </div>
             <div className='flex items-center justify-between'>
                 <p className='mr-3'>{username}</p>

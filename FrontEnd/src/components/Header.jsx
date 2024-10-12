@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaHome } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Header = ({ handleLogout }) => {
     return (
@@ -8,8 +10,16 @@ const Header = ({ handleLogout }) => {
                 <h1 className="text-2xl font-bold ml-2 font-mono cursor-default">Footprint Mayhem</h1>
             </div>
             <div className='flex items-center justify-between'>
-                <a className="mr-8 text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" href=''>Home</a>
-                <a className="text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" href=''>About</a>
+                <Link 
+                    className="mr-8 text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300"
+                    to='/'>
+                    <FaHome size={24} /> {/* House icon, 24px size */}
+                </Link>
+                <a 
+                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300"
+                    href=''>
+                    About
+                </a>
             </div>
         </header>
     );
