@@ -62,7 +62,7 @@ export function About() {
                     <a href="https://www.linkedin.com/in/ehab-abdalla-04ab411b3/" target="_blank" rel="noopener noreferrer">
                         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-green-600 hover:scale-105 transition-transform duration-300">
                             <img
-                                src="/images/ehab.jpg"
+                                src="/images/zian.jpg"
                                 alt="Person 1"
                                 width="128"
                                 height="128"
@@ -74,7 +74,7 @@ export function About() {
                     <a href="https://www.linkedin.com/in/loyd-flores/" target="_blank" rel="noopener noreferrer">
                         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-green-600 hover:scale-105 transition-transform duration-300">
                             <img
-                                src="/images/loyd.jpg"
+                                src="/images/Jonn.jpg"
                                 alt="Person 2"
                                 width="128"
                                 height="128"
@@ -86,7 +86,7 @@ export function About() {
                     <a href="https://www.linkedin.com/in/davidmejia1/" target="_blank" rel="noopener noreferrer">
                         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-green-600 hover:scale-105 transition-transform duration-300">
                             <img
-                                src="/images/david.jpg"
+                                src="/images/Fezan.jpg"
                                 alt="Person 3"
                                 width="128"
                                 height="128"
@@ -98,7 +98,7 @@ export function About() {
                     <a href="https://www.linkedin.com/in/mohammed-zian-hassan/" target="_blank" rel="noopener noreferrer">
                         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-green-600 hover:scale-105 transition-transform duration-300">
                             <img
-                                src="/images/zian.jpg"
+                                src="/../../public/images/Abraham.jpg"
                                 alt="Person 4"
                                 width="128"
                                 height="128"
