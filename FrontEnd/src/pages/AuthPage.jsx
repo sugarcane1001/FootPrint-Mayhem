@@ -3,7 +3,7 @@ import { auth } from '../firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
-import { doc, setDoc } from 'firebase/firestore'; 
+import { doc, setDoc } from 'firebase/firestore';
 
 export function AuthPage() {
     const [email, setEmail] = useState('');
@@ -52,10 +52,19 @@ export function AuthPage() {
         }
     };
 
+    const styles = {
+        container: `min-h-screen flex items-center justify-center bg-green-50`,
+        formWrapper: `w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md`,
+        title: `text-2xl font-bold text-center text-green-600`,
+        input: `w-full p-2 border border-gray-300 rounded-md`, 
+        button: `w-full p-2 text-white bg-green-500 rounded-md hover:bg-green-600`, 
+        toggleButton: `w-full text-green-500 hover:underline text-center`, 
+    };
+
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold text-center">
+        <div className={styles.container}>
+            <div className={styles.formWrapper}>
+                <h1 className={styles.title}>
                     {isLogin ? 'Login' : 'Sign Up'}
                 </h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -67,7 +76,7 @@ export function AuthPage() {
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
                                 required
-                                className="w-full p-2 border border-gray-300 rounded-md"
+                                className={styles.input}
                             />
                             <input
                                 type="text"
@@ -75,7 +84,7 @@ export function AuthPage() {
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 required
-                                className="w-full p-2 border border-gray-300 rounded-md"
+                                className={styles.input}
                             />
                             <input
                                 type="text"
@@ -83,7 +92,7 @@ export function AuthPage() {
                                 value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                                 required
-                                className="w-full p-2 border border-gray-300 rounded-md"
+                                className={styles.input}
                             />
                         </>
                     )}
@@ -94,7 +103,7 @@ export function AuthPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="w-full p-2 border border-gray-300 rounded-md"
+                        className={styles.input}
                     />
                     <input
                         type="password"
@@ -102,18 +111,18 @@ export function AuthPage() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="w-full p-2 border border-gray-300 rounded-md"
+                        className={styles.input}
                     />
                     <button
                         type="submit"
-                        className="w-full p-2 text-white bg-blue-600 rounded-md hover:bg-blue-500"
+                        className={styles.button}
                     >
                         {isLogin ? 'Login' : 'Sign Up'}
                     </button>
                 </form>
                 <button
                     onClick={toggleLogin}
-                    className="w-full text-blue-600 hover:underline"
+                    className={styles.toggleButton}
                 >
                     {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
                 </button>
