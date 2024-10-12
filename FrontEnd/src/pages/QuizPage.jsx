@@ -1,5 +1,5 @@
 // QuizPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export const quizQuestions = {
@@ -166,6 +166,8 @@ export const quizQuestions = {
 };
 
 
+
+
 export function QuizPage() {
     const { levelId } = useParams();
     const navigate = useNavigate();
@@ -173,8 +175,15 @@ export function QuizPage() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
 
-    console.log('Level ID:', levelId); // Debugging output
     const questions = quizQuestions[levelId] || [];
+
+    useEffect(() => {
+        // Check if the user has unlocked this level
+        const highestUnlockedLevel = parseInt(localStorage.getItem('highestUnlockedLevel') || '1', 10);
+        if (parseInt(levelId, 10) > highestUnlockedLevel) {
+            navigate('/quiz-levels');
+        }
+    }, [levelId, navigate]);
 
     if (questions.length === 0) {
         return <div>No questions available for this level.</div>;
@@ -182,42 +191,54 @@ export function QuizPage() {
 
     const currentQuiz = questions[currentQuestion];
 
-    // Add handleAnswerClick function
     const handleAnswerClick = (index) => {
         setSelectedAnswer(index);
         if (index === currentQuiz.correctAnswer) {
             setScore((prevScore) => prevScore + 1);
         }
 
-        // Move to the next question after a brief delay
         setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
                 setCurrentQuestion((prev) => prev + 1);
-                setSelectedAnswer(null); // Reset selected answer
+                setSelectedAnswer(null);
             } else {
-                // Quiz completed, navigate back to the dashboard
-                alert(`Quiz completed! Your score: ${score + 1}/${questions.length}`);
-                navigate('/dashboard'); // Adjust route as per your routing setup
+                // Quiz completed
+                const currentLevel = parseInt(levelId, 10);
+                const pointsEarned = score + (index === currentQuiz.correctAnswer ? 1 : 0);
+                
+                // Store the points earned for this level
+                localStorage.setItem(`level${currentLevel}Score`, pointsEarned.toString());
+                
+                // Unlock next level if it's not already unlocked
+                const highestUnlockedLevel = parseInt(localStorage.getItem('highestUnlockedLevel') || '1', 10);
+                if (currentLevel >= highestUnlockedLevel) {
+                    localStorage.setItem('highestUnlockedLevel', (currentLevel + 1).toString());
+                }
+
+                alert(`Quiz completed! Your score: ${pointsEarned}/${questions.length}`);
+                
+                // Navigate back to the quiz-levels page
+                navigate('/quiz-levels');
             }
-        }, 1000); // Delay to show feedback to the user
+        }, 1000);
     };
 
     return (
-        <div className="bg-white rounded-lg p-6 shadow-md">
-            <h2 className="text-2xl font-semibold mb-6">Level {levelId} Quiz</h2>
-            <h3 className="text-xl font-medium mb-4">{currentQuiz.question}</h3>
+        <div className="bg-green-50 rounded-lg p-8 shadow-lg max-w-md mx-auto mt-10">
+            <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Level {levelId} Quiz</h2>
+            <h3 className="text-xl font-semibold text-green-600 mb-4 text-center">{currentQuiz.question}</h3>
             <div className="space-y-4">
                 {currentQuiz.options.map((option, index) => (
                     <button
                         key={index}
                         onClick={() => handleAnswerClick(index)}
-                        className={`w-full p-3 text-left rounded-lg transition-colors ${
-                            selectedAnswer === index
+                        className={`w-full p-4 text-left rounded-lg transition-colors duration-300 
+                            ${selectedAnswer === index
                                 ? index === currentQuiz.correctAnswer
-                                    ? 'bg-green-500 text-white'
-                                    : 'bg-red-500 text-white'
-                                : 'bg-gray-100 hover:bg-gray-200'
-                        }`}
+                                    ? 'bg-green-500 text-white shadow-lg'
+                                    : 'bg-red-500 text-white shadow-lg'
+                                : 'bg-white hover:bg-green-100 border border-green-300'
+                            }`}
                     >
                         {option}
                     </button>

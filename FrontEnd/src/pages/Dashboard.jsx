@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { LeaderBoard } from '../components/LeaderBoard';
 import { handleFormSubmission } from '../firebaseUtils';
@@ -25,20 +25,27 @@ export function Dashboard() {
 
     return (
         <>
-            <Header handleLogout={handleLogout}></Header>
-            <UserInputForm></UserInputForm>
-            <LeaderBoard></LeaderBoard>
-            {/* LevelQuiz component */}
-            <div className="mt-8 mb-8 w-full">
-                        <LevelQuiz onComplete={handleQuizComplete} />
-                    </div>
-            
-            <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <Header handleLogout={handleLogout} />
+            <UserInputForm />
+            <LeaderBoard />
+
+            {/* Start Carbon Quiz button right under the LeaderBoard */}
+            <div className="flex justify-center m-30">
+                <Link 
+                    to="/quiz-levels"
+                    className="block w-full max-w-sm p-3 text-center text-white bg-green-600 rounded-md hover:bg-green-500"
+                >
+                    Start Carbon Quiz
+                </Link>
+            </div>
+
+            {/* Dashboard Info Section */}
+            <div className="flex items-end justify-center min-h-screen bg-gray-100">
                 <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md text-center">
                     <h1 className="text-2xl font-bold">Welcome to your Dashboard!</h1>
-                    <p>You are logged in as: <span className="font-semibold">{auth.currentUser?.email}</span></p>
-                    
-                    
+                    <p>
+                        You are logged in as: <span className="font-semibold">{auth.currentUser?.email}</span>
+                    </p>
 
                     <button
                         onClick={handleLogout}
@@ -48,8 +55,6 @@ export function Dashboard() {
                     </button>
                 </div>
             </div>
-
-            
         </>
     );
 }

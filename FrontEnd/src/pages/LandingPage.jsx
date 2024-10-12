@@ -60,8 +60,7 @@ export function LandingPage() {
             image: "https://via.placeholder.com/400"
         },
     ];
-
-    // Modify the FeatureCard component to accept an 'index' prop
+    
     function FeatureCard({ title, description, image, index }) {
         const isEven = index % 2 === 0;
         return (

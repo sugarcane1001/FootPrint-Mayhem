@@ -6,6 +6,8 @@ import { AuthPage } from './pages/AuthPage';
 import { Dashboard } from './pages/Dashboard';
 import { QuizPage } from './pages/QuizPage';
 import { LevelQuiz } from './components/LevelQuiz';
+import { QuizLevelsPage } from './pages/QuizLevelsPage';
+
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
                 <Route path="/auth" element={<AuthPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/quiz/:levelId" element={<QuizPage />} />
+                <Route path="/quiz-levels" element={<QuizLevelsPage />} />
+
 
             </Routes>
         </Router>
