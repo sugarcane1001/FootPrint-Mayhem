@@ -2,59 +2,35 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { auth } from '../firebase';
 
-
-
 export function LeaderBoard() {
-    const [leaderboardData, setLeaderboardData] = useState([]);
-    const [formData, setFormData] = useState('');
-    const [submissionMessage, setSubmissionMessage] = useState('');
     const [currentUserRank, setCurrentUserRank] = useState(null);
     const [currentUserPoints, setCurrenUserPoints] = useState(0);
     const [leaderboard, setLeaderboard] = useState([]);
-    const [streakScore, setStreakScore] = useState(0);
-
-
 
     useEffect(() => {
         fetchLeaderboard();
-        fetchStreakScore();
     }, []);
 
     const fetchLeaderboard = async () => {
         try {
             const response = await axios.get('http://localhost:3000/leaderboard');
             const data = response.data.leaderboard;
-            console.log(data);
             setCurrenUserPoints(data.find(user => user.id === auth.currentUser.uid).points);
             const currentUser = data.find(user => user.id === auth.currentUser.uid);
             setCurrentUserRank(data.indexOf(currentUser) + 1);
 
-            setLeaderboard(data.slice(0, 3));
+            setLeaderboard(data.slice(0, 20));
         } catch (error) {
             console.error('Error fetching leaderboard:', error);
         }
     };
-
-    const fetchStreakScore = async () => {
-        try {
-            const response = await axios.get('YOUR_BACKEND_API_URL/streak-score', {
-                headers: {
-                    'Authorization': `Bearer ${await auth.currentUser.getIdToken()}`
-                }
-            });
-            setStreakScore(response.data.streakScore);
-        } catch (error) {
-            console.error('Error fetching streak score:', error);
-        }
-    };
-
 
     return (
         <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div className="px-4 py-6 sm:px-0">
                 <div className="flex justify-between items-start">
                     {/* Leaderboard Section */}
-                    <div className="w-2/3 bg-white shadow rounded-lg p-6">
+                    <div className="w-full bg-white shadow rounded-lg p-6">
                         <h2 className="text-xl font-semibold mb-4">Leaderboard</h2>
                         <table className="w-full">
                             <thead>
@@ -90,11 +66,11 @@ export function LeaderBoard() {
                             {/* Fire Logo on the Left */}
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="w-16 h-16"
+                                className="w-16 h-16 text-green-600"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
-                                strokeWidth={2}
+                                strokeWidth={1}
                             >
                                 <path
                                     strokeLinecap="round"
@@ -111,5 +87,5 @@ export function LeaderBoard() {
                 </div>
             </div>
         </main>
-    )
+    );
 }

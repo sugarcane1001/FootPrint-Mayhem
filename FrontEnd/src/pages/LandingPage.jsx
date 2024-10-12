@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header"
 import { FeatureCard } from '../components/FeatureCard.jsx'
-import {Footer} from '../components/Footer.jsx'
+import Footer from '../components/Footer.jsx'
 
 
 export function LandingPage() {
@@ -35,33 +35,32 @@ export function LandingPage() {
 
     const features = [
         {
-            title: "Feature 1",
-            description: "This is a description of the first feature. It can be quite long and will wrap to the next line if needed.",
-            image: "https://via.placeholder.com/400"
+            title: "Daily Challenges",
+            description: 'Daily Challenges offers users personalized eco-friendly tasks to complete each day, helping them reduce their carbon footprint while earning rewards. Challenges are designed around various environmental aspects such as energy consumption, transportation, and waste reduction.',
+            image: "https://tinyurl.com/msjc7duc"
         },
         {
-            title: "Feature 2",
-            description: "This is a description of the second feature. It's also long enough to demonstrate text wrapping.",
-            image: "https://via.placeholder.com/400"
+            title: "Quizzes",
+            description: 'Quizzes allows users to test and expand their knowledge about carbon footprints, sustainability, and eco-friendly practices. Through a series of interactive quizzes, users are presented with questions on topics such as renewable resources, waste management, energy consumption, and how individual actions affect the planet.',
+            image: "https://tinyurl.com/2sknfsdd"
         },
         {
-            title: "Feature 3",
-            description: "This is a description of the third feature. Add more text to see how it handles longer content.",
-            image: "https://via.placeholder.com/400"
+            title: "Streaks",
+            description: 'Streaks encourages users to maintain consistent daily activity by tracking their carbon footprint each day. For every consecutive day that a user logs their footprint or completes eco-friendly actions, they build a streak. As the streak grows, the points the user can earn are increased, providing extra motivation to stay engaged with their environmental goals.',
+            image: "https://tinyurl.com/ycx9yww4"
         },
         {
-            title: "Feature 4",
-            description: "This is a description of the fourth feature. It continues the pattern of longer descriptions.",
-            image: "https://via.placeholder.com/400"
+            title: "Badges",
+            description: 'Badges allow users to earn recognition for their achievements based on accumulated points, streaks, or completed challenges. As users engage with the app and work toward reducing their carbon footprint, they unlock badges that showcase their progress and dedication. These badges are displayed on the user\'s profile, providing a sense of accomplishment and pride.',
+            image: "https://tinyurl.com/mr2c4v62"
         },
         {
-            title: "Feature 5",
-            description: "This is a description of the fifth feature. Keep adding features to ensure scrolling is necessary.",
-            image: "https://via.placeholder.com/400"
+            title: "Leaderboard",
+            description: 'The leaderboard lets you compete with others by tracking your carbon footprint progress. Only the Top 100 users in each category have their points, streaks, and badges displayed, making it an exclusive showcase for the most dedicated participants. This feature adds a competitive element, motivating users to reach the top and be recognized for their commitment to reducing their carbon footprint.',
+            image: "https://tinyurl.com/4eeecb3b"
         },
     ];
-
-    // Modify the FeatureCard component to accept an 'index' prop
+    
     function FeatureCard({ title, description, image, index }) {
         const isEven = index % 2 === 0;
         return (
