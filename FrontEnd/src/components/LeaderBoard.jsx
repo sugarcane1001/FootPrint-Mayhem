@@ -29,7 +29,7 @@ export function LeaderBoard() {
             const currentUser = data.find(user => user.id === auth.currentUser.uid);
             setCurrentUserRank(data.indexOf(currentUser) + 1);
 
-            setLeaderboard(data.slice(0, 3));
+            setLeaderboard(data.slice(0, 6));
         } catch (error) {
             console.error('Error fetching leaderboard:', error);
         }
