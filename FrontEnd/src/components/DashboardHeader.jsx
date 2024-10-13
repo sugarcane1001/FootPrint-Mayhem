@@ -17,7 +17,7 @@ const DashboardHeader = ({ handleLogout }) => {
             if (user) {
                 try {
                     // Call the leaderboard API to fetch users
-                    const response = await axios.get('http://localhost:3000/leaderboard');
+                    const response = await axios.get('https://jshot117-backend--3000.prod1.defang.dev/leaderboard');
                     const data = response.data.leaderboard;
 
                     // Find the current user in the leaderboard data
