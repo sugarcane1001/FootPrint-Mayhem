@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'; 
 import Header from '../components/Header';  // Correct way
+import DashboardHeader from '../components/DashboardHeader';
 
 
 export function About() {
@@ -12,7 +13,7 @@ export function About() {
 
     return (
         <>
-            <Header />
+            <DashboardHeader />
             <motion.div
                 initial="hidden"
                 animate="enter"
