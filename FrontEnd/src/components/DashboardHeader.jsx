@@ -45,13 +45,21 @@ const DashboardHeader = ({ handleLogout }) => {
     const renderBadgeIcon = () => {
         switch (currentUserBadge.toLowerCase()) {
             case 'gold':
-                return <FaCarrot size={24} className="text-gold" />; // Display carrot icon for gold badge
+                //return <FaCarrot size={24} className="text-gold" />; // Display carrot icon for gold badge
+                return <img src="/images/gold_trophy.jpg" alt="Gold Badge" width={38} height={38} />;
+
             case 'silver':
-                return <FaLeaf size={24} className="text-silver" />; // Display leaf icon for silver badge
+                //return <FaLeaf size={24} className="text-silver" />; // Display leaf icon for silver badge
+                return <img src="/images/silver_trophy.jpg" alt="Silver Badge" width={40} height={40} />;
+
             case 'bronze':
-                return <FaBicycle size={24} className="text-bronze" />; // Display bicycle icon for bronze badge
+                //return <FaBicycle size={24} className="text-bronze" />; // Display bicycle icon for bronze badge
+                return <img src="/images/bronze_trophy.jpg" alt="Bronze Badge" width={38} height={38} />;
+
             default:
-                return <FaTrophy size={24} className="text-gray-500" />; // Default trophy icon if no badge or unrecognized badge
+                //return <FaTrophy size={24} className="text-gray-500" />; // Default trophy icon if no badge or unrecognized badge
+                return <img src="/images/bronze_trophy.jpg" alt="Bronze Badge" width={38} height={38} />;
+
         }
     };
 

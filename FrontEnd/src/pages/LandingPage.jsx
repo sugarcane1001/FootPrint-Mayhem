@@ -22,7 +22,7 @@ export function LandingPage() {
         heroBackground: `absolute inset-0 bg-no-repeat bg-center bg-cover opacity-30`, // Add this line for the background
         mainTitle: `text-7xl font-bold mb-6 text-green-600`,
         subtitle: `text-xl mb-8 text-gray-600`,
-        button: `bg-green-500 text-white font-bold py-3 px-6 rounded-full text-lg hover:bg-green-600 hover:-translate-y-2 hover:shadow-lg shadow-md transition-transform duration-300`,
+        button: `bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg hover:bg-green-600 hover:-translate-y-2 hover:shadow-lg shadow-md transition-transform duration-300`,
         featureList: `flex-grow bg-gray-100 py-16`,
         featureListInner: `max-w-6xl mx-auto px-4 space-y-24`,
         footer: `bg-green-500 text-white py-24 rounded-t-[100px]`,
