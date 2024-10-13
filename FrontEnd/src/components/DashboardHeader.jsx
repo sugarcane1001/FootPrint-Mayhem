@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaHome } from 'react-icons/fa'; // Correct import from Font Awesome
-import { auth, db } from '../firebase'; // Ensure paths to firebase are correct
+import { auth } from '../firebase'; // Ensure paths to firebase are correct
+import axios from 'axios'; // Import axios for API calls
 import { Link } from 'react-router-dom';
 
 const DashboardHeader = ({ handleLogout }) => {
@@ -9,16 +10,26 @@ const DashboardHeader = ({ handleLogout }) => {
     useEffect(() => {
         const fetchUsername = async () => {
             const user = auth.currentUser;
-            console.log("Current User: ", user);
+            console.log("Current User:", user); // Log current user
             if (user) {
                 try {
-                    const userDoc = await db.collection('users').doc(user.uid).get();
-                    if (userDoc.exists) {
-                        setUsername(userDoc.data().username);
+                    // Call the leaderboard API to fetch users
+                    const response = await axios.get('http://localhost:3000/leaderboard');
+                    const data = response.data.leaderboard;
+
+                    // Find the current user in the leaderboard data
+                    const currentUser = data.find(userData => userData.id === user.uid);
+                    if (currentUser) {
+                        setUsername(currentUser.username); // Set username if found
+                    } else {
+                        console.log('Current user not found in leaderboard');
                     }
                 } catch (error) {
                     console.error('Error fetching username:', error);
                 }
+            } else {
+                console.log("No user is logged in");
+                setUsername(''); // Clear username if no user is logged in
             }
         };
 
@@ -44,7 +55,7 @@ const DashboardHeader = ({ handleLogout }) => {
                 </div>
             </div>
             <div className='flex items-center justify-between'>
-                <p className='mr-3'>{username}</p>
+                <p className='mr-3'>{username || 'Loading...'}</p> {/* Show 'Loading...' if username is not set */}
                 <p>Badge</p>
             </div>
             <button onClick={handleLogout} className="ml-4 bg-red-600 text-white p-2 rounded">Logout</button>
