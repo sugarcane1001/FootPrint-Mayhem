@@ -32,10 +32,15 @@ const DashboardHeader = ({ handleLogout }) => {
                 <h1 className="text-2xl font-bold ml-2 font-mono cursor-default">Footprint Mayhem</h1>
                 <div className='ml-8 flex items-center'>
                     {/* House icon */}
-                    <Link className="mr-8 text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" to='/'>
+                    <Link className="mr-8 text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" to='/'>
                         <FaHome size={24} /> {/* House icon, 24px size */}
                     </Link>
-                    <a className="text-gray-800 hover:text-green-400 transition delay-30 text-lg font-mono" href=''>About</a>
+                    <Link 
+                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" 
+                    to="/about"
+                    >
+                    About
+                    </Link>
                 </div>
             </div>
             <div className='flex items-center justify-between'>
