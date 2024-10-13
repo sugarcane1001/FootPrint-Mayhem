@@ -20,7 +20,7 @@ export function Dashboard() {
     formStreakContainer: `flex flex-wrap justify-between mb-16`, // Consistent margin between elements
     formSection: `w-full md:w-1/2 p-4`, // Flexbox layout for form and streak
     streakSection: `w-full md:w-1/2 p-4`,
-    leaderboard: `bg-gray-100 py-16`, // Matches the leaderboard section background with padding
+    leaderboard: `bg-green-50 py-16`, // Matches the leaderboard section background with padding
     quizButtonContainer: `flex justify-center mt-12`, // Consistent spacing
     quizButton: `block w-full max-w-sm py-4 px-6 text-center text-white bg-green-500 rounded-full text-lg hover:bg-green-600 font-bold` // Consistent button styling
   };
