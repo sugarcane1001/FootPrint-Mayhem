@@ -3,10 +3,12 @@ import { FaHome, FaBicycle, FaLeaf, FaCarrot, FaTrophy } from 'react-icons/fa'; 
 import { auth } from '../firebase'; // Ensure paths to firebase are correct
 import axios from 'axios'; // Import axios for API calls
 import { Link } from 'react-router-dom';
+import Badges from './Badges';
 
 const DashboardHeader = ({ handleLogout }) => {
     const [username, setUsername] = useState('');
     const [currentUserBadge, setCurrentUserBadge] = useState(''); // Stores the badge level ('gold', 'silver', etc.)
+    const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
         const fetchUsername = async () => {
@@ -32,8 +34,8 @@ const DashboardHeader = ({ handleLogout }) => {
                 }
             } else {
                 console.log("No user is logged in");
-                setUsername(''); // Clear username if no user is logged in
             }
+            setLoading(false); // Update loading state once the data is fetched
         };
 
         fetchUsername();
@@ -64,7 +66,7 @@ const DashboardHeader = ({ handleLogout }) => {
                         <FaHome size={24} /> {/* House icon, 24px size */}
                     </Link>
                     <Link 
-                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" 
+                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300"
                     to="/about"
                     >
                     About
