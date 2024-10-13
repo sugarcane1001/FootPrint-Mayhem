@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: 
+      context: ./Backend  # Build the backend Docker image
+      dockerfile: Dockerfile
+      
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./Backend/.env
+    deploy:
+      resources:
+        reservations:
+          memory: 256M

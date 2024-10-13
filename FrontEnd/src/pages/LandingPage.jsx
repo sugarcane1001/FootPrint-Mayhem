@@ -2,7 +2,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header"
-import { FeatureCard } from '../components/FeatureCard.jsx'
 import Footer from '../components/Footer.jsx'
 
 
