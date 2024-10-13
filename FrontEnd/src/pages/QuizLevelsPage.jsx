@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LevelQuiz } from '../components/LevelQuiz';
+import DashboardHeader from '../components/DashboardHeader';
 
 export function QuizLevelsPage() {
     const navigate = useNavigate();
@@ -12,7 +13,8 @@ export function QuizLevelsPage() {
     };
 
     return (
-        <div className="p-8">
+        <div className="">
+            <DashboardHeader></DashboardHeader>
             <LevelQuiz onComplete={handleQuizComplete} />
         </div>
     );

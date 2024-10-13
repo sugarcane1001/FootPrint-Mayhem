@@ -3,6 +3,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header"
 import Footer from '../components/Footer.jsx'
+import natureImage from './Nature.jpg'; // Adjust the path if necessary
+
 
 
 export function LandingPage() {
@@ -14,23 +16,23 @@ export function LandingPage() {
 
     const styles = {
         container: `min-h-screen flex flex-col`,
-        hero: `text-center py-20 bg-green-50`, // Centered text, added some padding and a light background
-        heroContent: `max-w-4xl mx-auto px-4`, // Constrain width and center content
+        hero: `text-center py-20 bg-green-50 relative`, // Add relative for absolute positioning
+        heroContent: `max-w-4xl mx-auto px-4 relative z-10`, // Make sure the content is above the background
+        heroBackground: `absolute inset-0 bg-no-repeat bg-center bg-cover opacity-30`, // Add this line for the background
         mainTitle: `text-7xl font-bold mb-6 text-green-600`,
         subtitle: `text-xl mb-8 text-gray-600`,
-        heroImage: `w-1/2 max-w-md`,
-        button: `bg-green-500 text-white font-bold py-3 px-6 rounded-full text-lg hover:bg-green-600`,
+        button: `bg-green-500 text-white font-bold py-3 px-6 rounded-full text-lg hover:bg-green-600 hover:-translate-y-2 hover:shadow-lg shadow-md transition-transform duration-300`,
         featureList: `flex-grow bg-gray-100 py-16`,
         featureListInner: `max-w-6xl mx-auto px-4 space-y-24`,
-        footer: `bg-green-500 text-white py-24 rounded-t-[100px]`, // Large, curved footer
+        footer: `bg-green-500 text-white py-24 rounded-t-[100px]`,
         footerContent: `max-w-6xl mx-auto px-4 text-center`,
-        footerTitle: `text-4xl font-bold mb-8`,// Increased space between items
+        footerTitle: `text-4xl font-bold mb-8`,
         card: `flex items-center justify-between max-w-6xl mx-auto`,
-        cardImage: `w-1/2 max-w-md rounded-3xl`, // Increased image size
+        cardImage: `w-1/2 max-w-md rounded-3xl hover:-translate-y-2 hover:shadow-lg shadow-md transition-transform duration-300`,
         cardContent: `w-1/2 max-w-md px-8`,
-        cardTitle: `text-3xl font-bold mb-4 text-red-500`, // Changed title style to red
+        cardTitle: `text-3xl font-bold mb-4 text-red-500`,
         cardDescription: `text-lg text-gray-600`,
-    };
+    };   
 
     const features = [
         {
@@ -77,8 +79,9 @@ export function LandingPage() {
         <>
             <Header></Header>
             <section className={styles.hero}>
+                <div className={styles.heroBackground} style={{ backgroundImage: `url(${natureImage})` }}></div>
                 <div className={styles.heroContent}>
-                    <h1 className={styles.mainTitle}>Your carbon footprint</h1>
+                    <h1 className={styles.mainTitle} style={{ textShadow: '1px 1px 4px rgba(0, 0, 0, 0.7)' }}>Your carbon footprint</h1>
                     <p className={styles.subtitle}>The free, fun, and effective way to reduce your environmental impact!</p>
                     <button className={styles.button}  onClick={handleGetStarted}>GET STARTED</button>
                 </div>
