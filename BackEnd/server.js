@@ -14,6 +14,8 @@ admin.initializeApp({
     projectId: "hackharvard-ec32c"
 });
 
+const db = admin.firestore();
+
 app.get('/leaderboard', async (req, res) => {
     try {
         const usersSnapshot = await db.collection('users').orderBy('points', 'desc').limit(10).get();
@@ -30,8 +32,11 @@ app.get('/leaderboard', async (req, res) => {
     }
 });
 
+// Add a health check endpoint
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
-
-const db = admin.firestore();
