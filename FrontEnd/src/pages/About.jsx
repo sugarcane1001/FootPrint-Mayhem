@@ -99,7 +99,7 @@ export function About() {
                     <a href="https://www.linkedin.com/in/mohammed-zian-hassan/" target="_blank" rel="noopener noreferrer">
                         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-green-600 hover:scale-105 transition-transform duration-300">
                             <img
-                                src="/../../public/images/Abraham.jpg"
+                                src="/images/Abraham.jpg"
                                 alt="Person 4"
                                 width="128"
                                 height="128"
