@@ -3,9 +3,11 @@ import { FaHome } from 'react-icons/fa'; // Correct import from Font Awesome
 import { auth } from '../firebase'; // Ensure paths to firebase are correct
 import axios from 'axios'; // Import axios for API calls
 import { Link } from 'react-router-dom';
+import Badges from './Badges';
 
 const DashboardHeader = ({ handleLogout }) => {
     const [username, setUsername] = useState('');
+    const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
         const fetchUsername = async () => {
@@ -29,8 +31,8 @@ const DashboardHeader = ({ handleLogout }) => {
                 }
             } else {
                 console.log("No user is logged in");
-                setUsername(''); // Clear username if no user is logged in
             }
+            setLoading(false); // Update loading state once the data is fetched
         };
 
         fetchUsername();
@@ -47,7 +49,7 @@ const DashboardHeader = ({ handleLogout }) => {
                         <FaHome size={24} /> {/* House icon, 24px size */}
                     </Link>
                     <Link 
-                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" 
+                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300"
                     to="/about"
                     >
                     About
@@ -55,8 +57,10 @@ const DashboardHeader = ({ handleLogout }) => {
                 </div>
             </div>
             <div className='flex items-center justify-between'>
-                <p className='mr-3'>{username || 'Loading...'}</p> {/* Show 'Loading...' if username is not set */}
-                <p>Badge</p>
+                <p className='mr-3'>{loading ? 'Loading...' : username}</p> {/* Show 'Loading...' while fetching */}
+                <div className='ml-3'> {/* Wrap Badges in a div for layout flexibility */}
+                    <Badges></Badges>
+                </div>
             </div>
             <button onClick={handleLogout} className="ml-4 bg-red-600 text-white p-2 rounded">Logout</button>
         </header>
