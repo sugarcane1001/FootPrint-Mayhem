@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 const DashboardHeader = ({ handleLogout }) => {
     const [username, setUsername] = useState('');
+    const [currentUserBadge, setCurrentUserBadge] = useState('');
+
 
     useEffect(() => {
         const fetchUsername = async () => {
@@ -19,8 +21,13 @@ const DashboardHeader = ({ handleLogout }) => {
 
                     // Find the current user in the leaderboard data
                     const currentUser = data.find(userData => userData.id === user.uid);
+                    console.log(currentUser.badges);
+
+                    const currentUserBadge = currentUser.badges;
+
                     if (currentUser) {
                         setUsername(currentUser.username); // Set username if found
+                        setCurrentUserBadge(currentUser.badges)
                     } else {
                         console.log('Current user not found in leaderboard');
                     }
@@ -56,7 +63,7 @@ const DashboardHeader = ({ handleLogout }) => {
             </div>
             <div className='flex items-center justify-between'>
                 <p className='mr-3'>{username || 'Loading...'}</p> {/* Show 'Loading...' if username is not set */}
-                <p>Badge</p>
+                <p>{currentUserBadge || 'Loading...'}</p>
             </div>
             <button onClick={handleLogout} className="ml-4 bg-red-600 text-white p-2 rounded">Logout</button>
         </header>
