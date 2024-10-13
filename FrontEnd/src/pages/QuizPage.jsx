@@ -70,96 +70,96 @@ export const quizQuestions = {
             correctAnswer: 2
         },
         {
-            "question": "Which type of food typically has the highest carbon footprint per kilogram?",
-            "options": ["Beef", "Chicken", "Rice", "Vegetables"],
-            "correctAnswer": 0
+            question: "Which type of food typically has the highest carbon footprint per kilogram?",
+            options: ["Beef", "Chicken", "Rice", "Vegetables"],
+            correctAnswer: 0
         },
         {
-            "question": "Which action would save the most CO2 annually for the average household?",
-            "options": [
+            question: "Which action would save the most CO2 annually for the average household?",
+            options: [
                 "Unplugging electronic devices when not in use", 
                 "Switching to energy-efficient light bulbs", 
                 "Installing solar panels", 
                 "Using public transport instead of driving a car"
             ],
-            "correctAnswer": 2
+            correctAnswer: 2
         },
         {
-            "question": "How does buying second-hand clothes reduce your carbon footprint?",
-            "options": ["It increases demand for raw materials", 
+            question: "How does buying second-hand clothes reduce your carbon footprint?",
+            options: ["It increases demand for raw materials", 
                 "It extends the lifecycle of products", 
                 "It improves transportation emissions", 
                 "It eliminates the need for washing"
             ],
-            "correctAnswer": 1
+            correctAnswer: 1
         }     // Add more questions for this level
     ],
     4:[
         {
-            "question": "Which international agreement aims to limit global warming to well below 2°C above pre-industrial levels?",
-            "options": ["Kyoto Protocol", "Paris Agreement", "Montreal Protocol", "Glasgow Pact"],
-            "correctAnswer": 1
+            question: "Which international agreement aims to limit global warming to well below 2°C above pre-industrial levels?",
+            options: ["Kyoto Protocol", "Paris Agreement", "Montreal Protocol", "Glasgow Pact"],
+            correctAnswer: 1
         },
         {
-            "question": "What is the 'carbon budget' for limiting global warming to 1.5°C?",
-            "options": ["500 gigatons", "800 gigatons", "1,200 gigatons", "2,000 gigatons"],
-            "correctAnswer": 1
+            question: "What is the 'carbon budget' for limiting global warming to 1.5°C?",
+            options: ["500 gigatons", "800 gigatons", "1,200 gigatons", "2,000 gigatons"],
+            correctAnswer: 1
         },
         {
-            "question": "Which country is currently the largest emitter of carbon dioxide?",
-            "options": ["United States", "China", "India", "Russia"],
-            "correctAnswer": 1
+            question: "Which country is currently the largest emitter of carbon dioxide?",
+            options: ["United States", "China", "India", "Russia"],
+            correctAnswer: 1
         },
         {
-            "question": "What is the main goal of carbon pricing mechanisms like 'cap-and-trade' and 'carbon tax'?",
-            "options": ["Subsidize green technologies", "Limit fossil fuel extraction", "Internalize the cost of emissions", "Fund renewable energy projects"],
-            "correctAnswer": 2
+            question: "What is the main goal of carbon pricing mechanisms like 'cap-and-trade' and 'carbon tax'?",
+            options: ["Subsidize green technologies", "Limit fossil fuel extraction", "Internalize the cost of emissions", "Fund renewable energy projects"],
+            correctAnswer: 2
         }
 
     ],
     5: [
         {
-            "question": "Which industrial sector contributes the most to global carbon emissions?",
-            "options": ["Transportation", "Agriculture", "Energy production", "Construction"],
-            "correctAnswer": 2
+            question: "Which industrial sector contributes the most to global carbon emissions?",
+            options: ["Transportation", "Agriculture", "Energy production", "Construction"],
+            correctAnswer: 2
         },
         {
-            "question": "What is the global warming potential (GWP) of methane compared to carbon dioxide over 20 years?",
-            "options": ["10 times", "25 times", "50 times", "100 times"],
-            "correctAnswer": 1
+            question: "What is the global warming potential (GWP) of methane compared to carbon dioxide over 20 years?",
+            options: ["10 times", "25 times", "50 times", "100 times"],
+            correctAnswer: 1
         }, 
         {
-            "question": "Which practice is most effective for capturing carbon from the atmosphere?",
-            "options": ["Direct air capture", "Planting forests", "Soil carbon sequestration", "Biochar production"],
-            "correctAnswer": 0
+            question: "Which practice is most effective for capturing carbon from the atmosphere?",
+            options: ["Direct air capture", "Planting forests", "Soil carbon sequestration", "Biochar production"],
+            correctAnswer: 0
         },
         {
-            "question": "Which of the following has the largest water and carbon footprint combined?",
-            "options": ["Almond milk", "Beef burger", "Chicken breast", "Rice bowl"],
-            "correctAnswer": 1
+            question: "Which of the following has the largest water and carbon footprint combined?",
+            options: ["Almond milk", "Beef burger", "Chicken breast", "Rice bowl"],
+            correctAnswer: 1
         }
 
     ],
     6: [
         {
-            "question": "What is the key challenge in achieving negative emissions through direct air capture (DAC) technologies?",
-            "options": ["High operational costs", "Lack of regulatory frameworks", "Insufficient land availability", "Limited carbon storage capacity"],
-            "correctAnswer": 0
+            question: "What is the key challenge in achieving negative emissions through direct air capture (DAC) technologies?",
+            options: ["High operational costs", "Lack of regulatory frameworks", "Insufficient land availability", "Limited carbon storage capacity"],
+            correctAnswer: 0
         },
         {
-            "question": "Which concept explains how reducing Arctic ice impacts global weather patterns?",
-            "options": ["Albedo effect", "Thermohaline circulation", "Jet stream destabilization", "Carbon sink degradation"],
-            "correctAnswer": 2
+            question: "Which concept explains how reducing Arctic ice impacts global weather patterns?",
+            options: ["Albedo effect", "Thermohaline circulation", "Jet stream destabilization", "Carbon sink degradation"],
+            correctAnswer: 2
         },
         {
-            "question": "What is the main limitation of relying on carbon offsets to meet corporate net-zero goals?",
-            "options": ["Lack of transparency in reporting", "Offsets do not reduce emissions at the source", "Short lifespan of carbon sequestration projects", "High demand leading to offset inflation"],
-            "correctAnswer": 1
+            question: "What is the main limitation of relying on carbon offsets to meet corporate net-zero goals?",
+            options: ["Lack of transparency in reporting", "Offsets do not reduce emissions at the source", "Short lifespan of carbon sequestration projects", "High demand leading to offset inflation"],
+            correctAnswer: 1
         },
         {
-            "question": "Which feedback loop is considered the most dangerous in accelerating climate change?",
-            "options": ["Permafrost thawing", "Ocean acidification", "Ice-albedo feedback", "Methane clathrate release"],
-            "correctAnswer": 0
+            question: "Which feedback loop is considered the most dangerous in accelerating climate change?",
+            options: ["Permafrost thawing", "Ocean acidification", "Ice-albedo feedback", "Methane clathrate release"],
+            correctAnswer: 0
         }
 
     ]
@@ -175,15 +175,17 @@ export function QuizPage() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
 
-    const questions = quizQuestions[levelId] || [];
+    // Convert levelId to an integer
+    const level = parseInt(levelId, 10); // Make sure it's a number, not a string
+    const questions = quizQuestions[level] || []; // Access the quizQuestions with a number
 
     useEffect(() => {
         // Check if the user has unlocked this level
         const highestUnlockedLevel = parseInt(localStorage.getItem('highestUnlockedLevel') || '1', 10);
-        if (parseInt(levelId, 10) > highestUnlockedLevel) {
+        if (level > highestUnlockedLevel) {
             navigate('/quiz-levels');
         }
-    }, [levelId, navigate]);
+    }, [level, navigate]);
 
     if (questions.length === 0) {
         return <div>No questions available for this level.</div>;
@@ -203,16 +205,15 @@ export function QuizPage() {
                 setSelectedAnswer(null);
             } else {
                 // Quiz completed
-                const currentLevel = parseInt(levelId, 10);
                 const pointsEarned = score + (index === currentQuiz.correctAnswer ? 1 : 0);
                 
                 // Store the points earned for this level
-                localStorage.setItem(`level${currentLevel}Score`, pointsEarned.toString());
+                localStorage.setItem(`level${level}Score`, pointsEarned.toString());
                 
                 // Unlock next level if it's not already unlocked
                 const highestUnlockedLevel = parseInt(localStorage.getItem('highestUnlockedLevel') || '1', 10);
-                if (currentLevel >= highestUnlockedLevel) {
-                    localStorage.setItem('highestUnlockedLevel', (currentLevel + 1).toString());
+                if (level >= highestUnlockedLevel) {
+                    localStorage.setItem('highestUnlockedLevel', (level + 1).toString());
                 }
 
                 alert(`Quiz completed! Your score: ${pointsEarned}/${questions.length}`);
@@ -220,7 +221,7 @@ export function QuizPage() {
                 // Navigate back to the quiz-levels page
                 navigate('/quiz-levels');
             }
-        }, 1000);
+        }, 300);
     };
 
     return (
