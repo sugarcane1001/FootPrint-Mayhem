@@ -16,7 +16,7 @@ const DashboardHeader = ({ handleLogout }) => {
             console.log('Current user:', user);
             if (user) {
                 try {
-                    const response = await axios.post('https://jshot117-backend--3000.prod1.defang.dev/leaderboard' || 'http://localhost:3000/userInfo', {
+                    const response = await axios.post('https://jshot117-backend--3000.prod1.defang.dev/userInfo' || 'http://localhost:3000/userInfo', {
                         uid: user.uid
                     }, {
                         headers: {
