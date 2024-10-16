@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion'; 
-import Header from '../components/Header';  // Correct way
 import DashboardHeader from '../components/DashboardHeader';
 
 
