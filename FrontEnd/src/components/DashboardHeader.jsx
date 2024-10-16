@@ -11,7 +11,7 @@ const DashboardHeader = ({ handleLogout }) => {
     const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
-        const  fetchUsername = async () => {
+        async function fetchUsername() {
             const user = auth.currentUser;
             console.log('Current user:', user);
             if (user) {
@@ -36,7 +36,7 @@ const DashboardHeader = ({ handleLogout }) => {
                 }
             } else {
                 console.log("No user is logged in");
-            }https://github.com/Jshot117/HackHarvard
+            } https://github.com/Jshot117/HackHarvard
             setLoading(false); // Update loading state once the data is fetched
         };
 
@@ -75,11 +75,11 @@ const DashboardHeader = ({ handleLogout }) => {
                     <Link className="mr-8 text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300" to='/dashboard'>
                         <FaHome size={24} /> {/* House icon, 24px size */}
                     </Link>
-                    <Link 
-                    className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300"
-                    to="/about"
+                    <Link
+                        className="text-gray-800 hover:text-green-400 text-lg font-mono hover:scale-110 transform transition-transform duration-300"
+                        to="/about"
                     >
-                    About
+                        About
                     </Link>
                 </div>
             </div>
