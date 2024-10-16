@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaHome, FaBicycle, FaLeaf, FaCarrot, FaTrophy } from 'react-icons/fa'; // Import necessary icons
 import { auth } from '../firebase'; // Ensure paths to firebase are correct
 import axios from 'axios'; // Import axios for API calls
 import { Link } from 'react-router-dom';
-import Badges from './Badges';
+import { useNavigate } from "react-router-dom";
+
 
 const DashboardHeader = ({ handleLogout }) => {
     const [username, setUsername] = useState('');
     const [currentUserBadge, setCurrentUserBadge] = useState(''); // Stores the badge level ('gold', 'silver', etc.)
     const [loading, setLoading] = useState(true); // Add loading state
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function fetchUsername() {
@@ -63,12 +65,18 @@ const DashboardHeader = ({ handleLogout }) => {
                 return <img src="/images/bronze_trophy.jpg" alt="Bronze Badge" width={38} height={38} />;
 
         }
-    };
 
+    };
+    const handleOnClick = () => {
+        
+        navigate("/")
+    }
     return (
         <header className="flex items-center justify-around bg-white p-4 shadow-lg">
             <div className="flex items-center">
-                <img src="https://i0.wp.com/energysavingpros.com/wp-content/uploads/2017/09/footprint-e1505497060105.jpg?fit=900%2C471&ssl=1" alt="App Logo" className="h-10" />
+                <button onClick={handleOnClick}>
+                    <img src="https://i0.wp.com/energysavingpros.com/wp-content/uploads/2017/09/footprint-e1505497060105.jpg?fit=900%2C471&ssl=1" alt="App Logo" className="h-10" />
+                </button>
                 <h1 className="hidden md:block text-2xl font-bold md:ml-2 font-mono cursor-default">Footprint Mayhem</h1>
                 <div className='md:ml-8 flex items-center'>
                     {/* House icon */}
