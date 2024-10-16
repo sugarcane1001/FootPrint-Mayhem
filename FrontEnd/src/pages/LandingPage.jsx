@@ -27,9 +27,9 @@ export function LandingPage() {
         footer: `bg-green-500 text-white py-24 rounded-t-[100px]`,
         footerContent: `max-w-6xl mx-auto px-4 text-center`,
         footerTitle: `text-4xl font-bold mb-8`,
-        card: `flex items-center justify-between max-w-6xl mx-auto`,
-        cardImage: `w-1/2 max-w-md rounded-3xl hover:-translate-y-2 hover:shadow-lg shadow-md transition-transform duration-300`,
-        cardContent: `w-1/2 max-w-md px-8`,
+        card: `md:flex items-center justify-between max-w-6xl mx-auto`,
+        cardImage: `mt-4 md:w-1/2 md:max-w-md rounded-3xl hover:-translate-y-2 hover:shadow-lg shadow-md transition-transform duration-300`,
+        cardContent: `md:w-1/2 max-w-md px-8`,
         cardTitle: `text-3xl font-bold mb-4 text-red-500`,
         cardDescription: `text-lg text-gray-600`,
     };   

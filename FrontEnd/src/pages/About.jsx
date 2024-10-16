@@ -60,7 +60,7 @@ export function About() {
                     </p>
                 </section>
 
-                <div className="flex flex-col md:flex-row items-center justify-center mt-10 space-y-6 md:space-y-0 md:space-x-8">
+                <div className="flex flex-wrap md:flex-row items-center justify-evenly md:justify-center mt-10 md:space-x-8">
                     <a href="https://www.linkedin.com/in/ehab-abdalla-04ab411b3/" target="_blank" rel="noopener noreferrer">
                         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-green-600 hover:scale-105 transition-transform duration-300">
                             <img

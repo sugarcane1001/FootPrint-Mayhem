@@ -11,7 +11,7 @@ export default function Header({ handleLogout }) {
                     alt="Footprint Mayhem Logo" 
                     className="h-10"
                 />
-                <h1 className="text-2xl font-bold ml-2 font-mono cursor-default">Footprint Mayhem</h1>
+                <h1 className="hidden md:block text-2xl font-bold ml-2 font-mono cursor-default">Footprint Mayhem</h1>
             </div>
             <div className="ml-auto flex items-center space-x-8">
                 <Link 
