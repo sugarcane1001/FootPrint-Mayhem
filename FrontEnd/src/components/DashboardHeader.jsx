@@ -11,12 +11,11 @@ const DashboardHeader = ({ handleLogout }) => {
     const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
-        const fetchUsername = async () => {
+        const  fetchUsername = async () => {
             const user = auth.currentUser;
             console.log('Current user:', user);
             if (user) {
                 try {
-                    // Call the leaderboard API to fetch users
                     const response = await axios.post('http://localhost:3000/userInfo', {
                         uid: user.uid
                     }, {
@@ -25,8 +24,6 @@ const DashboardHeader = ({ handleLogout }) => {
                         }
                     });
                     const currentUser = await response.data;
-
-                    // Find the current user in the leaderboard data
 
                     if (currentUser) {
                         setUsername(currentUser.username); // Set username if found
