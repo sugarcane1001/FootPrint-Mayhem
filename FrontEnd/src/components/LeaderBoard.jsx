@@ -14,8 +14,7 @@ export function LeaderBoard() {
 
     const fetchLeaderboard = async () => {
         try {
-            console.log('http://localhost:3000/userInfo','https://jshot117-backend--3000.prod1.defang.dev/leaderboard')
-            const response = await axios.get('http://localhost:3000/leaderboard');
+            const response = await axios.get('https://jshot117-backend--3000.prod1.defang.dev/leaderboard'|| 'http://localhost:3000/leaderboard');
             const data = response.data.leaderboard;
             setCurrenUserPoints(data.find(user => user.id === auth.currentUser.uid).points);
             const currentUser = data.find(user => user.id === auth.currentUser.uid);
