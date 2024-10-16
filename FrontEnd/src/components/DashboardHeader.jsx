@@ -13,15 +13,20 @@ const DashboardHeader = ({ handleLogout }) => {
     useEffect(() => {
         const fetchUsername = async () => {
             const user = auth.currentUser;
-            console.log("Current User:", user); // Log current user
+            console.log('Current user:', user);
             if (user) {
                 try {
                     // Call the leaderboard API to fetch users
-                    const response = await axios.get('https://jshot117-backend--3000.prod1.defang.dev/leaderboard');
-                    const data = response.data.leaderboard;
+                    const response = await axios.post('http://localhost:3000/userInfo', {
+                        uid: user.uid
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const currentUser = await response.data;
 
                     // Find the current user in the leaderboard data
-                    const currentUser = data.find(userData => userData.id === user.uid);
 
                     if (currentUser) {
                         setUsername(currentUser.username); // Set username if found
@@ -34,7 +39,7 @@ const DashboardHeader = ({ handleLogout }) => {
                 }
             } else {
                 console.log("No user is logged in");
-            }
+            }https://github.com/Jshot117/HackHarvard
             setLoading(false); // Update loading state once the data is fetched
         };
 
